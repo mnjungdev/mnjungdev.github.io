@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Sweet Home - 최고의 관제 소프트웨어 솔루션</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 100%);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .delay-200 {
+            animation-delay: 200ms;
+        }
+        .delay-400 {
+            animation-delay: 400ms;
+        }
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .video-container video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #2563eb;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .detection-box {
+            position: absolute;
+            border: 2px solid rgba(0, 255, 0, 0.5);
+            border-radius: 4px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                border-color: rgba(0, 255, 0, 0.5);
+                box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.5);
+            }
+            70% {
+                border-color: rgba(0, 255, 0, 0.3);
+                box-shadow: 0 0 0 10px rgba(0, 255, 0, 0);
+            }
+            100% {
+                border-color: rgba(0, 255, 0, 0.5);
+                box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
+            }
+        }
+        .data-point {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(0, 255, 255, 0.7);
+            border-radius: 50%;
+            animation: blink 1.5s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- 네비게이션 바 -->
+    <nav class="bg-white fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-gray-900">Home Sweet Home</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#products" class="nav-link text-gray-900 px-3 py-2 text-sm font-medium">Products</a>
+                        <a href="#solutions" class="nav-link text-gray-900 px-3 py-2 text-sm font-medium">Solutions</a>
+                        <a href="#features" class="nav-link text-gray-900 px-3 py-2 text-sm font-medium">Digital Twin</a>
+                        <a href="about.html" class="nav-link text-gray-900 px-3 py-2 text-sm font-medium">Company</a>
+                        <a href="#contact" class="bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors">Contact us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 히어로 섹션 -->
+    <section id="home" class="relative h-screen">
+        <div class="video-container">
+            <video autoplay loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-city-traffic-9182-large.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 hero-gradient"></div>
+            <div id="detection-overlay" class="absolute inset-0"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 h-full flex items-center">
+            <div class="text-white max-w-3xl">
+                <h1 class="text-6xl font-bold leading-tight mb-6 animate-fadeInUp">
+                    Envisioning<br>
+                    <span class="text-5xl">the Future of Control</span>
+                </h1>
+                <p class="text-xl text-gray-200 mb-12 animate-fadeInUp delay-200 leading-relaxed">
+                    Digital Twin 기술 기반의 차세대 관제 시스템으로<br>
+                    스마트하고 안전한 도시를 구현합니다.
+                </p>
+                <a href="#contact" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-blue-700 transition-colors animate-fadeInUp delay-400">
+                    Request Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 주요 특징 섹션 -->
+    <section id="features" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">
+                    Digital Twin Environment
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    HD 맵과 강력한 물리 엔진을 기반으로 구축된 디지털 트윈 환경에서<br>
+                    실제와 동일한 테스트 환경을 제공합니다.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- 실시간 모니터링 -->
+                <div class="feature-card bg-gray-50 rounded-xl p-8 hover:shadow-xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         class="w-full h-48 object-cover rounded-lg mb-8" alt="Real-time Monitoring">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">실시간 모니터링</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        고성능 센서 네트워크를 통해 도시 전역의 교통 상황을 실시간으로 모니터링합니다.
+                    </p>
+                </div>
+
+                <!-- AI 기반 분석 -->
+                <div class="feature-card bg-gray-50 rounded-xl p-8 hover:shadow-xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         class="w-full h-48 object-cover rounded-lg mb-8" alt="AI Analysis">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">AI 기반 분석</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        딥러닝 기술을 활용한 데이터 분석으로 교통 흐름을 최적화합니다.
+                    </p>
+                </div>
+
+                <!-- 통합 관리 시스템 -->
+                <div class="feature-card bg-gray-50 rounded-xl p-8 hover:shadow-xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         class="w-full h-48 object-cover rounded-lg mb-8" alt="Integrated Management">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">통합 관리 시스템</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        클라우드 기반의 통합 플랫폼으로 효율적인 도시 관제를 실현합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 문의하기 섹션 -->
+    <section id="contact" class="py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">
+                    Contact Us
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Home Sweet Home의 디지털 트윈 솔루션으로 미래 도시를 준비하세요
+                </p>
+            </div>
+
+            <div class="max-w-xl mx-auto">
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">이름</label>
+                        <input type="text" name="name" id="name" 
+                               class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">이메일</label>
+                        <input type="email" name="email" id="email" 
+                               class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">문의내용</label>
+                        <textarea id="message" name="message" rows="4" 
+                                  class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" 
+                                class="w-full bg-blue-600 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition-colors">
+                            문의하기
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="bg-gray-900 py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <p class="text-base text-gray-400">
+                    © 2024 Home Sweet Home. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 차량 및 보행자 감지 시각화 효과
+        function createDetectionBox() {
+            const overlay = document.getElementById('detection-overlay');
+            const box = document.createElement('div');
+            box.className = 'detection-box';
+            
+            // 랜덤 위치 (화면의 중앙 부근에 집중되도록)
+            const x = 30 + Math.random() * 40; // 30-70% of width
+            const y = 30 + Math.random() * 40; // 30-70% of height
+            
+            // 랜덤 크기
+            const width = 50 + Math.random() * 100;
+            const height = 50 + Math.random() * 100;
+            
+            box.style.left = `${x}%`;
+            box.style.top = `${y}%`;
+            box.style.width = `${width}px`;
+            box.style.height = `${height}px`;
+            
+            overlay.appendChild(box);
+            
+            // 2초 후 박스 제거
+            setTimeout(() => {
+                box.remove();
+            }, 2000);
+        }
+
+        function createDataPoint() {
+            const overlay = document.getElementById('detection-overlay');
+            const point = document.createElement('div');
+            point.className = 'data-point';
+            
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            
+            point.style.left = `${x}%`;
+            point.style.top = `${y}%`;
+            
+            overlay.appendChild(point);
+            
+            setTimeout(() => {
+                point.remove();
+            }, 1500);
+        }
+
+        // 주기적으로 감지 박스와 데이터 포인트 생성
+        setInterval(createDetectionBox, 1000);
+        setInterval(createDataPoint, 500);
+
+        // 비디오 자동 재생
+        document.querySelector('video').play().catch(function(error) {
+            console.log("Video autoplay failed:", error);
+        });
+    </script>
+</body>
+</html> 
