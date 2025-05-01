@@ -212,24 +212,24 @@
             </div>
 
             <div class="max-w-xl mx-auto">
-                <form class="space-y-6">
+                <form class="space-y-6" id="contactForm">
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700">이름</label>
-                        <input type="text" name="name" id="name" 
+                        <input type="text" name="name" id="name" required
                                class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                     </div>
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700">이메일</label>
-                        <input type="email" name="email" id="email" 
+                        <input type="email" name="email" id="email" required
                                class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                     </div>
                     <div>
                         <label for="message" class="block text-sm font-medium text-gray-700">문의내용</label>
-                        <textarea id="message" name="message" rows="4" 
+                        <textarea id="message" name="message" rows="4" required
                                   class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
                     </div>
                     <div>
-                        <button type="submit" 
+                        <button type="submit"
                                 class="w-full bg-blue-600 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition-colors">
                             문의하기
                         </button>
@@ -303,6 +303,18 @@
         // 비디오 자동 재생
         document.querySelector('video').play().catch(function(error) {
             console.log("Video autoplay failed:", error);
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const userEmail = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const subject = encodeURIComponent('[문의] Home Sweet Home');
+            const body = encodeURIComponent(
+                `이름: ${name}\n이메일: ${userEmail}\n\n${message}`
+            );
+            window.location.href = `mailto:mina.jung.dev@gmail.com?subject=${subject}&body=${body}`;
         });
     </script>
 </body>
